@@ -25,6 +25,8 @@ public class PlayerRun :  MonoBehaviour
     private Rigidbody playerRB;
     private Animator playerAnim;
     private AudioSource playerAudio;
+    private PlayerStateManager playerManager;
+
     private bool canRun = true;
 
     // Start is called before the first frame update
@@ -33,6 +35,7 @@ public class PlayerRun :  MonoBehaviour
         playerRB = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
+        playerManager = GetComponent<PlayerStateManager>();
     }
 
     // Update is called once per frame
@@ -57,8 +60,11 @@ public class PlayerRun :  MonoBehaviour
 
     private void MoveForward()
     {
-        playerAnim.SetFloat("Speed_f", 0.7f);
-        playerRB.velocity = new Vector3(playerRB.velocity.x, playerRB.velocity.y, forwardSpeed);
+        if (playerManager.CurrentState == PlayerState.Running)
+        {
+            playerAnim.SetFloat("Speed_f", 0.7f);
+            playerRB.velocity = new Vector3(playerRB.velocity.x, playerRB.velocity.y, forwardSpeed);
+        }        
     }
 
     private void MoveHorizontally()

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PlayerState { Running, Jumping, Landing, LandingOnEnemy, Hurt, Recovering, Dead }
+public enum PlayerStates { Running, Jumping, Landing, LandingOnEnemy, Hurt, Recovering, Dead }
 
 public class PlayerManager : MonoBehaviour
 {

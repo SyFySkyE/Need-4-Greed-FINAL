@@ -24,6 +24,9 @@ public class PlayerJump : MonoBehaviour
 
     private Rigidbody playerRB;
     private AudioSource playerAudio;
+    private Animator playerAnim;
+    private PlayerStateManager playerManager;
+    
     private bool canJump = true;
 
     // Start is called before the first frame update
@@ -31,6 +34,8 @@ public class PlayerJump : MonoBehaviour
     {
         playerRB = GetComponent<Rigidbody>();
         playerAudio = GetComponent<AudioSource>();
+        playerAnim = GetComponent<Animator>();
+        playerManager = GetComponent<PlayerStateManager>();
     }
 
     // Update is called once per frame
@@ -43,6 +48,8 @@ public class PlayerJump : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && canJump)
         {
+            playerManager.CurrentState = PlayerState.Jumping;
+            playerAnim.SetBool("Jump_b", true);
             jumpVfx.Play();
             playerAudio.PlayOneShot(jumpSfx, jumpSfxVolume);
             playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -54,6 +61,8 @@ public class PlayerJump : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground") && !canJump)
         {
+            playerAnim.SetBool("Jump_b", false);
+            playerManager.CurrentState = PlayerState.Running;
             jumpVfx.Stop();
             canJump = true;
             playerAudio.PlayOneShot(landSfx, landSfxVolume);
@@ -62,6 +71,7 @@ public class PlayerJump : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
+            playerAnim.SetBool("Jump_b", true);
             collision.gameObject.GetComponent<Enemy>().EnemyDeath();
             playerAudio.PlayOneShot(landOnEnemySfx, landOnEnemySfxVolume);
             landOnEnemyVfx.Play();
