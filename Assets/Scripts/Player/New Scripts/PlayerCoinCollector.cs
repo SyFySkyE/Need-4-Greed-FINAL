@@ -13,31 +13,14 @@ public class PlayerCoinCollector : MonoBehaviour
     [Header("Coin Text")]
     [SerializeField] private TextMeshProUGUI coinText;
 
-    private PlayerManager playerManager;
-
     // Start is called before the first frame update
     void Start()
     {
-        playerManager = GetComponent<PlayerManager>();
         UpdateCoinText();
     }
     private void UpdateCoinText()
     {
         coinText.text = coinsCollected.ToString();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        CheckIfJumpsOnEnemy();
-    }
-
-    private void CheckIfJumpsOnEnemy()
-    {
-        if (playerManager.CurrentState == PlayerState.LandingOnEnemy && playerManager.PreviousState != playerManager.CurrentState)
-        {
-            AddCoinBonus();
-        }
     }
 
     public void AddCoin()
@@ -46,7 +29,7 @@ public class PlayerCoinCollector : MonoBehaviour
         UpdateCoinText();
     }
 
-    private void AddCoinBonus()
+    public void AddCoinBonus()
     {
         coinsCollected += coinBonus;
         UpdateCoinText();
@@ -57,7 +40,7 @@ public class PlayerCoinCollector : MonoBehaviour
         return coinsCollected;
     }
 
-    private void PlayerHurt()
+    public void PlayerHurt()
     {
         coinsCollected -= coinsLostOnHurt;
         UpdateCoinText();

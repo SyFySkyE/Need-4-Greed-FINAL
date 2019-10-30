@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] public float RecoveryTime = 1.5f;
 
     private PlayerState currentState;
+    public PlayerState PreviousState;
     public PlayerState CurrentState
     {
         get { return this.currentState; }
@@ -17,24 +18,15 @@ public class PlayerManager : MonoBehaviour
         {
             if (this.currentState != value)
             {
-                this.PreviousState = this.CurrentState;
+                OnStateEnter();
                 this.currentState = value;
-                this.PreviousState = this.CurrentState;
             }
         }
     }
-
-    private PlayerState previousState;
-    public PlayerState PreviousState
+    
+    private void OnStateEnter()
     {
-        get { return this.previousState; }
-        private set 
-        {           
-            if (this.previousState != value)
-            {
-                this.previousState = value;                
-            }            
-        }        
+        Debug.Log("State is transitioning.");
     }
 
     // Start is called before the first frame update
@@ -46,9 +38,5 @@ public class PlayerManager : MonoBehaviour
     private void Update()
     {
         Debug.Log("Player Current State: " + this.CurrentState);
-        Debug.Log("Player Previous State: " + this.PreviousState);
-
-        // TODO This used to log the single frame where CurrentState and PRevious state don't line up,
-        // But other scripts didn't trigger (like PlayerSfx controller) the transition even when it did
     }
 }
