@@ -62,9 +62,13 @@ public class PlayerRun :  MonoBehaviour
     {
         if (playerManager.CurrentState == PlayerState.Running)
         {
-            playerAnim.SetFloat("Speed_f", 0.7f);
+            playerAnim.SetFloat("Speed_f", 0.7f);            
+        }
+
+        if (playerManager.CurrentState != PlayerState.Dead)
+        {
             playerRB.velocity = new Vector3(playerRB.velocity.x, playerRB.velocity.y, forwardSpeed);
-        }        
+        }
     }
 
     private void MoveHorizontally()
