@@ -71,6 +71,7 @@ public class PlayerJump : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
+            playerAnim.SetBool("Jump_b", false);
             playerAnim.SetBool("Jump_b", true);
             collision.gameObject.GetComponent<Enemy>().EnemyDeath();
             playerAudio.PlayOneShot(landOnEnemySfx, landOnEnemySfxVolume);

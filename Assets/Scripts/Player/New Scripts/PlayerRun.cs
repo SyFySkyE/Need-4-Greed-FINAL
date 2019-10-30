@@ -96,6 +96,11 @@ public class PlayerRun :  MonoBehaviour
             forwardSpeed += forwardSpeedIncrement;
             horizontalSpeed += horizontalSpeedIncrement;
         }
+        else if (other.CompareTag("Enemy"))
+        {
+            BroadcastMessage("PlayerHurt");
+            other.gameObject.layer = 11; // Don't collide
+        }
     }
 
     public void GameOver()
