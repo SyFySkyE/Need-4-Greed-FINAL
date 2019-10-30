@@ -17,6 +17,7 @@ public class PlayerManager : MonoBehaviour
         {
             if (this.currentState != value)
             {
+                this.PreviousState = this.CurrentState;
                 this.currentState = value;
                 this.PreviousState = this.CurrentState;
             }
@@ -29,7 +30,7 @@ public class PlayerManager : MonoBehaviour
         get { return this.previousState; }
         private set 
         {           
-            if (this.previousState != this.CurrentState)
+            if (this.previousState != value)
             {
                 this.previousState = value;                
             }            
@@ -40,5 +41,14 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         this.CurrentState = PlayerState.Running;
+    }
+
+    private void Update()
+    {
+        Debug.Log("Player Current State: " + this.CurrentState);
+        Debug.Log("Player Previous State: " + this.PreviousState);
+
+        // TODO This used to log the single frame where CurrentState and PRevious state don't line up,
+        // But other scripts didn't trigger (like PlayerSfx controller) the transition even when it did
     }
 }

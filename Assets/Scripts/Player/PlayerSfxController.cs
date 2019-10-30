@@ -53,6 +53,10 @@ public class PlayerSfxController : MonoBehaviour
     }
     private void ToggleJumpSfx()
     {
+        // TODO This only gets called when currentState == Jumping and prev state is running, 
+        // Or simply, not the same of currentState during the frame it transitions.
+        // Debug.Log() registers the frame that they aren't sync but other scripts don't.
+        // This gets triggered only sometimes, unreliable.
         if (playerManager.PreviousState == PlayerState.Running)
         {
             playerAudio.PlayOneShot(jumpSfx, jumpSfxVolume);
@@ -66,7 +70,14 @@ public class PlayerSfxController : MonoBehaviour
 
     private void PlayLandingSfx()
     {
-        playerAudio.PlayOneShot(landSfx, landSfxVolume);
+        // TODO This only gets called when currentState == Jumping and prev state is running, 
+        // Or simply, not the same of currentState during the frame it transitions.
+        // Debug.Log() registers the frame that they aren't sync but other scripts don't.
+        // This gets triggered only sometimes, unreliable.
+        if (playerManager.PreviousState != playerManager.CurrentState)
+        {
+            playerAudio.PlayOneShot(landSfx, landSfxVolume);
+        }
     }
 
     private void PlayLandingOnEnemySfx()
