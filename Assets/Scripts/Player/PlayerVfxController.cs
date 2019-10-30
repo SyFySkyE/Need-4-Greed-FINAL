@@ -40,6 +40,15 @@ public class PlayerVfxController : MonoBehaviour
             case PlayerState.Jumping:
                 StartJumpVfx();
                 break;
+            case PlayerState.Landing:
+                landVfx.Play();
+                break;
+            case PlayerState.LandingOnEnemy:
+                PlayLandingOnEnemyVfx();
+                break;
+            case PlayerState.Dead:
+                PlayDeathVfx();
+                break;
         }
     }
 
@@ -54,6 +63,37 @@ public class PlayerVfxController : MonoBehaviour
 
     private void StartJumpVfx()
     {
+        if (!jumpingVfx.isPlaying)
+        {
+            dustKickVfx.Stop();
+            jumpingVfx.Play();
+        }
+    }
 
+    private void PlayLandingOnEnemyVfx()
+    {
+        landOnEnemyVfx.Play();
+    }
+
+    private void PlayDeathVfx()
+    {
+        dustKickVfx.Stop();
+        failVfx.Play();
+    }
+    private void PlayerHurt()
+    {
+        StartCoroutine(FlashPlayer());
+        hurtVfx.Play();
+    }
+    private IEnumerator FlashPlayer()
+    {
+        SkinnedMeshRenderer render = GetComponentInChildren<SkinnedMeshRenderer>();
+        for (int i = 1; i < timeWhileFlashing; i++)
+        {
+            render.enabled = false;
+            yield return new WaitForSeconds(playerFlashInterval);
+            render.enabled = true;
+            yield return new WaitForSeconds(playerFlashInterval);
+        }
     }
 }
