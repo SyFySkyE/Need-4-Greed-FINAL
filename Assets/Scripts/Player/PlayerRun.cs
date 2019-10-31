@@ -48,6 +48,11 @@ public class PlayerRun :  MonoBehaviour
             MoveHorizontally();
             ConstrainHorizontalMovement();
         }
+        else
+        {
+            dustKickVfx.Stop();
+            playerRB.velocity = Vector3.zero;
+        }
     }
 
     private void PlayRunVfx()
@@ -96,7 +101,7 @@ public class PlayerRun :  MonoBehaviour
             forwardSpeed += forwardSpeedIncrement;
             horizontalSpeed += horizontalSpeedIncrement;
         }
-        else if (other.CompareTag("Enemy"))
+        else if (other.CompareTag("Enemy") || other.CompareTag("Obstacle"))
         {
             BroadcastMessage("PlayerHurt");
             other.gameObject.layer = 11; // Don't collide

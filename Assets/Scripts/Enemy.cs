@@ -49,5 +49,5 @@ public class Enemy : MonoBehaviour
     {
         enemyAnim.SetTrigger("Stomped");
         Destroy(this.gameObject, secondsBeforeDespawn);
-    }
+    }   
 }

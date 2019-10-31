@@ -12,12 +12,15 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("Particle System Prefabs")]
     [SerializeField] private ParticleSystem hurtVfx;
+    [SerializeField] private ParticleSystem deathVfx;
 
     [Header("Sfx Clips")]
     [SerializeField] AudioClip hurtSfx;
+    [SerializeField] AudioClip deathSfx;
 
     [Header("Sfx Volume")]
-    [SerializeField] private float hurtSfxVolume;
+    [SerializeField] private float hurtSfxVolume = 1f;
+    [SerializeField] private float deathSfxVolume = 3f;
 
     private Animator playerAnim;
     private AudioSource playerAudio;
@@ -39,17 +42,24 @@ public class PlayerHealth : MonoBehaviour
 
     private void PlayerHurt()
     {
-        if (vulnerable)
+        if (vulnerable && healthPoints > 1)
         {
             playerAnim.SetTrigger("Hurt");
             playerAudio.PlayOneShot(hurtSfx, hurtSfxVolume);
-            hurtVfx.Play();
-            healthPoints--;
-            UpdateHPText();
-            vulnerable = false;
+            hurtVfx.Play();            
             StartCoroutine(Recover());
         }
+        vulnerable = false;
+        healthPoints--;
+        UpdateHPText();
         CheckForPlayerDeath();
+    }
+
+    private void GameOver()
+    {
+        playerAnim.SetTrigger("Death_t");
+        playerAudio.PlayOneShot(deathSfx, deathSfxVolume);
+        deathVfx.Play();
     }
 
     private IEnumerator Recover()
@@ -66,9 +76,8 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public int GetHealth()
     {
-        
+        return this.healthPoints;
     }
 }

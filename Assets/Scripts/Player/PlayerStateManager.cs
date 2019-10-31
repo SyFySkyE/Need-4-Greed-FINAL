@@ -15,7 +15,7 @@ public class PlayerStateManager : MonoBehaviour
             if (this.currentState != value)
             {
                 this.previousState = this.currentState;
-                this.currentState = value;                
+                this.currentState = value;
             }
         }
     }
@@ -29,8 +29,18 @@ public class PlayerStateManager : MonoBehaviour
     {
         this.CurrentState = PlayerState.Running;
     }
+    public void ToggleGameOver()
+    {
+        BroadcastMessage("GameOver");
+    }
+
+    private void GameOver()
+    {
+        this.CurrentState = PlayerState.Dead;
+    }
+
     private void Update()
     {
-        Debug.Log("Current State: " + this.CurrentState);
+        Debug.Log(this.CurrentState); // TODO take out
     }
 }

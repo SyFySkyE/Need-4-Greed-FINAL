@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 8921563908224772445}
   - component: {fileID: 8915358994711301691}
   - component: {fileID: 8904266234387519547}
-  - component: {fileID: 8917459476985114734}
   - component: {fileID: 8918865958855828576}
   m_Layer: 0
-  m_Name: Obj_FullLanex2x6EASIER
+  m_Name: H_FullLanex2x6EASIER
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,18 +78,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &8917459476985114734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8918865958855828577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2c0d7caaac825645bf7f00ffd8e92bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &8918865958855828576
 MeshCollider:
   m_ObjectHideFlags: 0

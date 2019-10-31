@@ -26,13 +26,11 @@ public class Checkpoint : MonoBehaviour
     [SerializeField] private ParticleSystem passVfx;
 
     private AudioSource cpAudio;
-    private Animator playerAnim;
 
     // Start is called before the first frame update
     void Start()
     {
         cpAudio = GetComponent<AudioSource>();
-        playerAnim = GetComponent<Animator>();
         coinReqText.text = coinReq.ToString();
     }
 
@@ -40,15 +38,15 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            this.gameObject.layer = 11; // Don't collide
             if (other.GetComponent<PlayerCoinCollector>().GetCoinsCollected() >= coinReq)
-            {
+            {                
                 cpAudio.PlayOneShot(passSfx, passSfxVolume);
                 passVfx.Play();
             }
             else
             {
-                playerAnim.SetTrigger("Death_t");
-                other.GetComponent<PlayerStateManager>().CurrentState = PlayerState.Dead;
+                other.GetComponent<PlayerStateManager>().ToggleGameOver();            
             }
         }
     }

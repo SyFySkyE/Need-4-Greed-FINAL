@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 677948801998676843}
   - component: {fileID: 669752501219781859}
   - component: {fileID: 657503046284297249}
-  - component: {fileID: 657503046284297248}
   m_Layer: 0
-  m_Name: HalfLaneBarrel
+  m_Name: M_HalfLaneBarrel
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,15 +91,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.85185945, y: 1.1579027, z: 0.86052775}
   m_Center: {x: 0.0063108653, y: 0.57195413, z: 0.00025109947}
---- !u!114 &657503046284297248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 655665056392058203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2c0d7caaac825645bf7f00ffd8e92bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -67,12 +67,11 @@ public class PlayerJump : MonoBehaviour
             canJump = true;
             playerAudio.PlayOneShot(landSfx, landSfxVolume);
             landVfx.Play();
-            playerAudio.PlayOneShot(landSfx, landSfxVolume);
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
-            playerAnim.SetBool("Jump_b", false);
-            playerAnim.SetBool("Jump_b", true);
+            playerAnim.SetBool("JumpOn_b", true);
+            collision.gameObject.layer = 11; // Stop colliding
             collision.gameObject.GetComponent<Enemy>().EnemyDeath();
             playerAudio.PlayOneShot(landOnEnemySfx, landOnEnemySfxVolume);
             landOnEnemyVfx.Play();
@@ -82,6 +81,9 @@ public class PlayerJump : MonoBehaviour
 
     private void PlayerHurt()
     {
-        playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        if (GetComponent<PlayerHealth>().GetHealth() > 1)
+        {
+            playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
     }
 }

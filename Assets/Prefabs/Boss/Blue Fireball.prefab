@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8399639961422575298}
   - component: {fileID: 4595320754704530670}
   - component: {fileID: 4193884196350732703}
-  - component: {fileID: 6060115886952857678}
-  m_Layer: 0
+  - component: {fileID: 2843996255700471941}
+  m_Layer: 10
   m_Name: Blue Fireball
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -92,8 +92,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6508195, y: 1.4281034, z: 0.9780729}
-  m_Center: {x: 0.057804957, y: -0.39571047, z: 0.010963605}
+  m_Size: {x: 6.7276917, y: 1.4281034, z: 8.171549}
+  m_Center: {x: -0.5665779, y: -0.39571047, z: 2.2881503}
 --- !u!65 &4193884196350732703
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -105,9 +105,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2926733, y: 0.18529147, z: 1.409837}
-  m_Center: {x: 0.004925803, y: 0.40735424, z: 0.25965086}
---- !u!114 &6060115886952857678
+  m_Size: {x: 5.2406054, y: 0.18529147, z: 6.0047255}
+  m_Center: {x: -0.2552051, y: 0.40735424, z: 1.5043843}
+--- !u!114 &2843996255700471941
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,13 +116,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 174144793979940933}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09df6c872b5733743bc9e44f484b069e, type: 3}
+  m_Script: {fileID: 11500000, guid: e0fcd9d97fe6b5340b3a3948f3db9b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   backSpeed: -2
-  dragon: {fileID: 0}
   moveTowardMotherSpeed: 50
-  secondsBeforeDestroy: 4
+  secondsBeforeDestroy: 5
 --- !u!1 &7308738101320815197
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +133,7 @@ GameObject:
   - component: {fileID: 8979288002893698668}
   - component: {fileID: 5716507248428448579}
   - component: {fileID: 15178693506473516}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
