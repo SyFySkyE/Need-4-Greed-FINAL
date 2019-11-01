@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fireball : MonoBehaviour
+public class BossSpawn : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float backSpeed = -2f;
@@ -13,12 +13,21 @@ public class Fireball : MonoBehaviour
     [Header("Despawn Parameters")]
     [SerializeField] private float secondsBeforeDestroy = 5f;
 
+    [Header("Follow Player")]
+    [SerializeField] private bool followPlayer = false;
+    
+    private PlayerStateManager player;
     private Boss mother;
 
     // Start is called before the first frame update
     void Start()
     {
         Destroy(this.gameObject, secondsBeforeDestroy);
+        if (followPlayer)
+        {
+            player = FindObjectOfType<PlayerStateManager>();
+            transform.LookAt(player.transform);
+        }
     }
 
     // Update is called once per frame
@@ -26,7 +35,7 @@ public class Fireball : MonoBehaviour
     {
         if (mother == null)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * backSpeed);
+            transform.Translate(Vector3.forward * Time.deltaTime * backSpeed, Space.World);
         }
         else
         {
@@ -38,6 +47,7 @@ public class Fireball : MonoBehaviour
     {
         float moveStep = moveTowardMotherSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, mother.transform.position, moveStep);
+        GetComponent<BoxCollider>().enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -517,6 +517,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 635411742}
+    - target: {fileID: 9023132734117608746, guid: 6af0fab6c83845d46ba89b21ec0d2fa2,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6af0fab6c83845d46ba89b21ec0d2fa2, type: 3}
 --- !u!1 &435124447
@@ -1834,11 +1839,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6457819997924544425, guid: 411578b9e912a374ab2cab1131b21d16,
-        type: 3}
-      propertyPath: m_Name
-      value: Coin Par
-      objectReference: {fileID: 0}
     - target: {fileID: 6457819997924544342, guid: 411578b9e912a374ab2cab1131b21d16,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1893,6 +1893,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6457819997924544425, guid: 411578b9e912a374ab2cab1131b21d16,
+        type: 3}
+      propertyPath: m_Name
+      value: Coin Par
       objectReference: {fileID: 0}
     - target: {fileID: 6457819997253659740, guid: 411578b9e912a374ab2cab1131b21d16,
         type: 3}

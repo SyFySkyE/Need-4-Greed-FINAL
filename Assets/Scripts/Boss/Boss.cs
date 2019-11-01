@@ -30,6 +30,7 @@ public class Boss : MonoBehaviour
     [SerializeField] private int chanceOfSpawningSafe = 7;
 
     private Animator bossAnim;
+    private bool vulnerable = true;
 
     private enum BossPhase { One = 1, Two, Three }
     private BossPhase currentPhase;
@@ -59,11 +60,11 @@ public class Boss : MonoBehaviour
         {
             if (GetRandomNumber() == 0)
             {
-                Instantiate(safeDragon, spawnLocation.transform.position, Quaternion.identity);
+                Instantiate(safeDragon, spawnLocation.transform.position, transform.rotation);
             }
             else
             {
-                Instantiate(badDragon, spawnLocation.transform.position, Quaternion.identity);
+                Instantiate(badDragon, spawnLocation.transform.position, transform.rotation);
             }            
         }
         else
@@ -99,14 +100,19 @@ public class Boss : MonoBehaviour
     {
         if (other.gameObject.layer == 11) // Set by player once hit
         {
-            NextState();
             Destroy(other.gameObject);
+            NextState();            
         }
     }
 
     private void NextState()
     {        
-        currentPhase++;
+        if (vulnerable)
+        {
+            currentPhase++;
+            Debug.Log("State++");
+            vulnerable = false;            
+        }
     }
 
     private int GetRandomNumber()
