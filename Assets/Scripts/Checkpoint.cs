@@ -25,7 +25,11 @@ public class Checkpoint : MonoBehaviour
     [Header("Particle System")]
     [SerializeField] private ParticleSystem passVfx;
 
+    [Header("Music Player Dependency")]
+    [SerializeField] private MusicPlayer musicController;
+
     private AudioSource cpAudio;
+    private int musicIndex = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -40,14 +44,21 @@ public class Checkpoint : MonoBehaviour
         {
             this.gameObject.layer = 11; // Don't collide
             if (other.GetComponent<PlayerCoinCollector>().GetCoinsCollected() >= coinReq)
-            {                
+            {
                 cpAudio.PlayOneShot(passSfx, passSfxVolume);
                 passVfx.Play();
+                PlayNextSong();
             }
             else
             {
                 other.GetComponent<PlayerStateManager>().ToggleGameOver();            
             }
         }
+    }
+
+    private void PlayNextSong()
+    {
+        musicIndex++;
+        musicController.PlayMusic(musicIndex);
     }
 }
