@@ -8,10 +8,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3177403718564036824}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: bcf471273cc460644bee464d85b13464, type: 3}
 --- !u!65 &4306695064907468620
@@ -22,11 +22,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3177403718564036824}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.4556203, z: 2.305366}
-  m_Center: {x: 0, y: 0.970798, z: 0.652683}
+  m_Size: {x: 1, y: 0.6915848, z: 2.305366}
+  m_Center: {x: 0, y: 1.0887803, z: 0.652683}
 --- !u!114 &-631321565736757934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fcd9d97fe6b5340b3a3948f3db9b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backSpeed: -2
+  backSpeed: 15
   moveTowardMotherSpeed: 10
   secondsBeforeDestroy: 5
   followPlayer: 1
@@ -50,10 +50,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1674130526759142, guid: 6ff0cd15d1a2a2942b6bb5159b2a0b51, type: 3}
-      propertyPath: m_Name
-      value: BadDragon
-      objectReference: {fileID: 0}
     - target: {fileID: 4037594867893618, guid: 6ff0cd15d1a2a2942b6bb5159b2a0b51, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -97,6 +93,14 @@ PrefabInstance:
     - target: {fileID: 4037594867893618, guid: 6ff0cd15d1a2a2942b6bb5159b2a0b51, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1674130526759142, guid: 6ff0cd15d1a2a2942b6bb5159b2a0b51, type: 3}
+      propertyPath: m_Name
+      value: BadDragon
+      objectReference: {fileID: 0}
+    - target: {fileID: 1674130526759142, guid: 6ff0cd15d1a2a2942b6bb5159b2a0b51, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 95119539051081008, guid: 6ff0cd15d1a2a2942b6bb5159b2a0b51,
         type: 3}

@@ -77,6 +77,14 @@ public class PlayerJump : MonoBehaviour
             landOnEnemyVfx.Play();
             playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+        else if (collision.gameObject.CompareTag("BossSpawn"))
+        {
+            playerAnim.SetBool("JumpOn_b", true);
+            collision.gameObject.layer = 11; // Stop colliding
+            playerAudio.PlayOneShot(landOnEnemySfx, landOnEnemySfxVolume);
+            landOnEnemyVfx.Play();
+            playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
     }
 
     private void PlayerHurt()

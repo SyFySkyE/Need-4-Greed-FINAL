@@ -15025,8 +15025,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.44969803
-  m_Center: {x: 0.016417384, y: 0.13832474, z: 0}
+  m_Radius: 0.35236984
+  m_Center: {x: 0.016417384, y: 0.23565292, z: 0}
 --- !u!82 &5211687262554859510
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15181,8 +15181,11 @@ MonoBehaviour:
   recoveryTime: 1.5
   hPText: {fileID: 0}
   hurtVfx: {fileID: 5278537828044464742}
-  hurtSfx: {fileID: 8300000, guid: c12081ee2acf3454cb3c5b3ac2d40e05, type: 3}
-  hurtSfxVolume: 5
+  deathVfx: {fileID: 5211687263082770055}
+  hurtSfx: {fileID: 8300000, guid: 47ec81987f8b0ea44b7b1d9672fbf080, type: 3}
+  deathSfx: {fileID: 8300000, guid: 47ec81987f8b0ea44b7b1d9672fbf080, type: 3}
+  hurtSfxVolume: 3
+  deathSfxVolume: 5
 --- !u!114 &635411756
 MonoBehaviour:
   m_ObjectHideFlags: 0

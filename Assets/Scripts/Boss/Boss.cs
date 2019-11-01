@@ -29,6 +29,10 @@ public class Boss : MonoBehaviour
     [SerializeField] private float secondsBetweenSpawns = 1f;
     [SerializeField] private int chanceOfSpawningSafe = 7;
 
+    [Header("Final Phase Particle System")]
+    [SerializeField] private ParticleSystem eatGrass;
+    [SerializeField] private ParticleSystem deathVfx;
+
     private Animator bossAnim;
     private bool vulnerable = true;
 
@@ -66,6 +70,10 @@ public class Boss : MonoBehaviour
             {
                 Instantiate(badDragon, spawnLocation.transform.position, transform.rotation);
             }            
+        }
+        else if (currentPhase == BossPhase.Three)
+        {
+            bossAnim.SetTrigger("Charge");
         }
         else
         {
@@ -109,9 +117,11 @@ public class Boss : MonoBehaviour
     {        
         if (vulnerable)
         {
+            bossAnim.SetTrigger("Hurt");
             currentPhase++;
             Debug.Log("State++");
-            vulnerable = false;            
+            vulnerable = false;
+            StartCoroutine(ToggleVulnerable());
         }
     }
 
@@ -119,5 +129,36 @@ public class Boss : MonoBehaviour
     {
         int r = Random.Range(0, chanceOfSpawningSafe);
         return r;
+    }
+
+    private IEnumerator ToggleVulnerable()
+    {
+        yield return new WaitForSeconds(1f);
+        vulnerable = true;
+    }
+    private void ToggleParticleSystem()
+    {
+        if (!eatGrass.isPlaying)
+        {
+            eatGrass.Play();
+        }
+        else
+        {
+            eatGrass.Stop();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            bossAnim.SetTrigger("Death");
+            deathVfx.Play();
+        }
+    }
+
+    private void OnDeath()
+    {
+        Destroy(this.gameObject);
     }
 }
