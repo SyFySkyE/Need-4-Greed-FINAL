@@ -46,6 +46,8 @@ public class Checkpoint : MonoBehaviour
             if (other.GetComponent<PlayerCoinCollector>().GetCoinsCollected() >= coinReq)
             {
                 PlayCompletition();
+                other.GetComponent<PlayerHealth>().ResetPlayerHealth();
+                other.GetComponent<PlayerStateManager>().SetTransformLocation(this.transform.position);
             }
             else
             {

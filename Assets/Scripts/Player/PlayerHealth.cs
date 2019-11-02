@@ -43,17 +43,17 @@ public class PlayerHealth : MonoBehaviour
 
     private void PlayerHurt()
     {
-        if (vulnerable && healthPoints > 1)
+        if (vulnerable)
         {
             vulnerable = false;
             playerAnim.SetTrigger("Hurt");
             playerAudio.PlayOneShot(hurtSfx, hurtSfxVolume);
-            hurtVfx.Play();            
+            hurtVfx.Play();
+            healthPoints--;
+            UpdateHPText();
+            CheckForPlayerDeath();
             StartCoroutine(Recover());
-        }        
-        healthPoints--;
-        UpdateHPText();
-        CheckForPlayerDeath();
+        }                
     }
 
     private void Restart()
@@ -83,6 +83,11 @@ public class PlayerHealth : MonoBehaviour
     }
 
     private void Respawn()
+    {
+        ResetPlayerHealth();
+    }
+
+    public void ResetPlayerHealth()
     {
         this.healthPoints = initHP;
         UpdateHPText();

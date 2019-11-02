@@ -18,6 +18,7 @@ public class MusicPlayer : MonoBehaviour
 
     public void PlayMusic(int index)
     {
+        Debug.Log("Playing track: " + index);
         switch (index)
         {
             case 1:
@@ -34,9 +35,11 @@ public class MusicPlayer : MonoBehaviour
                 break;
         }
 
-        if (!musicPlayer.isPlaying)
+        if (musicPlayer.isPlaying)
         {
-            musicPlayer.Play();
+            musicPlayer.Stop();
         }
+
+        musicPlayer.Play();
     }
 }

@@ -14,6 +14,11 @@ public class GroundSpawner : MonoBehaviour
     [SerializeField] private int zPosSpawnTrigger = 0;
     [SerializeField] private int zPosDespawnTrigger = 250;
 
+    private const int initZPosToSpawn = 175;
+    private const int initZPosIncrement = 50;
+    private const int initZPosSpawnTrigger = 0;
+    private const int initZPosDespawnTrigger = 250;
+
     private Queue<GameObject> groundObjectsInScene = new Queue<GameObject>();
 
     // Start is called before the first frame update
@@ -49,5 +54,20 @@ public class GroundSpawner : MonoBehaviour
             zPosDespawnTrigger += zPosIncrement;
             Destroy(groundObjectsInScene.Dequeue());
         }
+    }
+
+    private void Respawn()
+    {
+        Debug.Log("dwda");
+        StartCoroutine(ResetParameters());        
+    }
+
+    private IEnumerator ResetParameters()
+    {
+        yield return new WaitForSeconds(1f);
+        zPosToSpawn = initZPosToSpawn;
+        zPosIncrement = initZPosIncrement;
+        zPosSpawnTrigger = initZPosSpawnTrigger;
+        zPosDespawnTrigger = initZPosDespawnTrigger;
     }
 }
