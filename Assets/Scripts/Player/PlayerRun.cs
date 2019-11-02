@@ -57,9 +57,16 @@ public class PlayerRun :  MonoBehaviour
 
     private void PlayRunVfx()
     {
-        if (!dustKickVfx.isPlaying)
+        if (playerManager.CurrentState == PlayerState.Jumping)
         {
-            dustKickVfx.Play();
+            dustKickVfx.Stop();
+        }
+        else
+        {
+            if (!dustKickVfx.isPlaying)
+            {
+                dustKickVfx.Play();
+            }
         }
     }
 

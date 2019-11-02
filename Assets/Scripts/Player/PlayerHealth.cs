@@ -44,12 +44,12 @@ public class PlayerHealth : MonoBehaviour
     {
         if (vulnerable && healthPoints > 1)
         {
+            vulnerable = false;
             playerAnim.SetTrigger("Hurt");
             playerAudio.PlayOneShot(hurtSfx, hurtSfxVolume);
             hurtVfx.Play();            
             StartCoroutine(Recover());
-        }
-        vulnerable = false;
+        }        
         healthPoints--;
         UpdateHPText();
         CheckForPlayerDeath();
