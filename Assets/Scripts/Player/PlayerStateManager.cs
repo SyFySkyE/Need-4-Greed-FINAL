@@ -6,6 +6,11 @@ public enum PlayerState { Running, Jumping, Landing, LandingOnEnemy, Hurt, Recov
 
 public class PlayerStateManager : MonoBehaviour
 {
+    [Header("Respawn Timer")]
+    [SerializeField] private float secondsBeforeRespawn = 3f;
+
+    private Vector3 respawnLoc = new Vector3(0f, 1f, 0f);
+
     private PlayerState currentState;
     public PlayerState CurrentState
     {
@@ -29,18 +34,32 @@ public class PlayerStateManager : MonoBehaviour
     {
         this.CurrentState = PlayerState.Running;
     }
-    public void ToggleGameOver()
-    {
-        BroadcastMessage("GameOver");
-    }
 
-    private void GameOver()
+    private void Restart()
     {
         this.CurrentState = PlayerState.Dead;
+        StartCoroutine(BroadcastRespawn());
+    }
+
+    private IEnumerator BroadcastRespawn()
+    {
+        yield return new WaitForSeconds(secondsBeforeRespawn);
+        BroadcastMessage("Respawn");
+    }
+
+    private void Respawn()
+    {
+        this.CurrentState = PlayerState.Running;
+        transform.position = respawnLoc;
     }
 
     private void Update()
     {
         Debug.Log(this.CurrentState); // TODO take out
+    }
+
+    public void SetTransformLocation(Vector3 newLoc)
+    {
+        this.respawnLoc = newLoc;
     }
 }

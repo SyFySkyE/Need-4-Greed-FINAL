@@ -115,8 +115,14 @@ public class PlayerRun :  MonoBehaviour
         }
     }
 
-    public void GameOver()
+    private void Restart()
     {
         canRun = false;
+    }
+
+    private void Respawn()
+    {
+        canRun = true;
+        playerAnim.SetTrigger("Respawn");
     }
 }

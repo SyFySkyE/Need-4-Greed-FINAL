@@ -14,7 +14,7 @@ public class MusicPlayer : MonoBehaviour
     private void Start()
     {
         musicPlayer = GetComponent<AudioSource>();
-    }
+    }    
 
     public void PlayMusic(int index)
     {
@@ -33,6 +33,10 @@ public class MusicPlayer : MonoBehaviour
                 musicPlayer.clip = levelOne;
                 break;
         }
-        musicPlayer.Play();
+
+        if (!musicPlayer.isPlaying)
+        {
+            musicPlayer.Play();
+        }
     }
 }

@@ -45,20 +45,30 @@ public class Checkpoint : MonoBehaviour
             this.gameObject.layer = 11; // Don't collide
             if (other.GetComponent<PlayerCoinCollector>().GetCoinsCollected() >= coinReq)
             {
-                cpAudio.PlayOneShot(passSfx, passSfxVolume);
-                passVfx.Play();
-                PlayNextSong();
+                PlayCompletition();
             }
             else
             {
-                other.GetComponent<PlayerStateManager>().ToggleGameOver();            
+                other.GetComponent<PlayerStateManager>().BroadcastMessage("Restart");            
             }
         }
+    }
+
+    private void PlayCompletition()
+    {
+        cpAudio.PlayOneShot(passSfx, passSfxVolume);
+        passVfx.Play();
+        PlayNextSong();
     }
 
     private void PlayNextSong()
     {
         musicIndex++;
         musicController.PlayMusic(musicIndex);
+    }
+
+    private void Restart()
+    {
+       // musicController.PlayMusic(musicIndex);
     }
 }

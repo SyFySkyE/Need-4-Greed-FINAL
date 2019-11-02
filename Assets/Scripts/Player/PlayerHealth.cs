@@ -24,7 +24,8 @@ public class PlayerHealth : MonoBehaviour
 
     private Animator playerAnim;
     private AudioSource playerAudio;
-
+    private const int initHP = 3; // Health gets set back to full upon restart, checkpoint pass
+    public int InitHP { get { return this.InitHP; } }    
     private bool vulnerable = true;
 
     // Start is called before the first frame update
@@ -55,7 +56,7 @@ public class PlayerHealth : MonoBehaviour
         CheckForPlayerDeath();
     }
 
-    private void GameOver()
+    private void Restart()
     {
         playerAnim.SetTrigger("Death_t");
         playerAudio.PlayOneShot(deathSfx, deathSfxVolume);
@@ -72,12 +73,18 @@ public class PlayerHealth : MonoBehaviour
     {
         if (healthPoints <= 0)
         {
-            BroadcastMessage("GameOver");
+            BroadcastMessage("Restart");
         }
     }
 
     public int GetHealth()
     {
         return this.healthPoints;
+    }
+
+    private void Respawn()
+    {
+        this.healthPoints = initHP;
+        UpdateHPText();
     }
 }

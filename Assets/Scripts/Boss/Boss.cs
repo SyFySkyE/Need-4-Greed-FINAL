@@ -10,7 +10,9 @@ public class Boss : MonoBehaviour
     [Header("Position")]
     [SerializeField] private float yPos = 10f;
     [SerializeField] private float zPos = 25f;
-    [SerializeField] private float yPosWhenCharging = -1f;
+
+    [Header("Spawn Parameters")]
+    [SerializeField] private float zPosToSpawn;
 
     [Header("Movement")]
     [SerializeField] private float xConstraint = 5f;
@@ -24,7 +26,7 @@ public class Boss : MonoBehaviour
     [SerializeField] private GameObject badDragon;
     [SerializeField] private GameObject safeDragon;
 
-    [Header("Spawn Parameters")]
+    [Header("Object Spawn Parameters")]
     [SerializeField] GameObject spawnLocation;
     [SerializeField] private float secondsBetweenSpawns = 1f;
     [SerializeField] private int chanceOfSpawningSafe = 7;
@@ -35,6 +37,7 @@ public class Boss : MonoBehaviour
 
     private Animator bossAnim;
     private bool vulnerable = true;
+    private bool hasSpawned = false;
 
     private enum BossPhase { One = 1, Two, Three }
     private BossPhase currentPhase;
@@ -42,13 +45,12 @@ public class Boss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentPhase = BossPhase.One;
-        StartCoroutine(Spawn());
         bossAnim = GetComponent<Animator>();
     }
 
     private IEnumerator Spawn()
     {
+        yield return new WaitForSeconds(secondsBetweenSpawns);
         if (currentPhase == BossPhase.One)
         {
             if (GetRandomNumber() == 0)
@@ -79,15 +81,31 @@ public class Boss : MonoBehaviour
         {
             StopCoroutine(Spawn());
         }
-        yield return new WaitForSeconds(secondsBetweenSpawns);
+        
         StartCoroutine(Spawn());
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!hasSpawned)
+        {
+            CheckForSpawn();
+        }
         StayInFrontOfPlayer();
         Move();       
+    }
+
+    private void CheckForSpawn()
+    {
+        if (player.transform.position.z >= zPosToSpawn)
+        {
+            currentPhase = BossPhase.One;
+            StartCoroutine(Spawn());            
+            bossAnim.SetTrigger("Spawn");
+            hasSpawned = true;
+            GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
+        }
     }
 
     private void StayInFrontOfPlayer()
