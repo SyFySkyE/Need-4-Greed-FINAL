@@ -14,6 +14,11 @@ public class GroundSpawner : MonoBehaviour
     [SerializeField] private int zPosSpawnTrigger = 0;
     [SerializeField] private int zPosDespawnTrigger = 250;
 
+    private const int initZPosToSpawn = 175;
+    private const int initZPosIncrement = 50;
+    private const int initZPosSpawnTrigger = 0;
+    private const int initZPosDespawnTrigger = 250;
+
     private Queue<GameObject> groundObjectsInScene = new Queue<GameObject>();
 
     // Start is called before the first frame update
@@ -49,5 +54,28 @@ public class GroundSpawner : MonoBehaviour
             zPosDespawnTrigger += zPosIncrement;
             Destroy(groundObjectsInScene.Dequeue());
         }
+    }
+
+    public void Restart()
+    {
+        ResetParameters();       
+    }
+
+    private void ResetParameters()
+    {
+        int playerZPos = (int)player.transform.position.z;
+        Debug.Log(playerZPos);              
+        zPosToSpawn = initZPosToSpawn + playerZPos;
+        Debug.Log(zPosToSpawn);
+        zPosSpawnTrigger = initZPosSpawnTrigger + playerZPos;
+        zPosDespawnTrigger = initZPosDespawnTrigger + playerZPos;
+        RespawnStartingGround();
+    }
+
+    private void RespawnStartingGround()
+    {
+        Vector3 spawnPos = new Vector3(0f, 0f, zPosToSpawn);
+        GameObject startGround = Instantiate(groundToSpawn, spawnPos, Quaternion.identity);
+        groundObjectsInScene.Enqueue(startGround);
     }
 }

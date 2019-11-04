@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2843996255700471941}
   m_Layer: 10
   m_Name: Blue Fireball
-  m_TagString: Obstacle
+  m_TagString: BossSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,9 +119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fcd9d97fe6b5340b3a3948f3db9b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backSpeed: -2
-  moveTowardMotherSpeed: 50
+  backSpeed: 2
+  moveTowardMotherSpeed: 125
   secondsBeforeDestroy: 5
+  followPlayer: 0
 --- !u!1 &7308738101320815197
 GameObject:
   m_ObjectHideFlags: 0

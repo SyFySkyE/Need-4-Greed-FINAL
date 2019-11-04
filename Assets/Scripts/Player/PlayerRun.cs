@@ -57,9 +57,16 @@ public class PlayerRun :  MonoBehaviour
 
     private void PlayRunVfx()
     {
-        if (!dustKickVfx.isPlaying)
+        if (playerManager.CurrentState == PlayerState.Jumping)
         {
-            dustKickVfx.Play();
+            dustKickVfx.Stop();
+        }
+        else
+        {
+            if (!dustKickVfx.isPlaying)
+            {
+                dustKickVfx.Play();
+            }
         }
     }
 
@@ -108,8 +115,14 @@ public class PlayerRun :  MonoBehaviour
         }
     }
 
-    public void GameOver()
+    private void Restart()
     {
         canRun = false;
     }
+
+    private void Respawn()
+    {
+        canRun = true;
+        playerAnim.SetTrigger("Respawn");
+    }    
 }

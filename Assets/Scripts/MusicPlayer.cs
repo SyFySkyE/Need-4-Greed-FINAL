@@ -4,19 +4,42 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
-    [SerializeField] AudioClip level1Music;
-    [SerializeField] AudioClip level2Music;
+    [Header("Level Music")]
+    [SerializeField] AudioClip levelOne;
+    [SerializeField] AudioClip levelTwo;
     [SerializeField] AudioClip bossMusic;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private AudioSource musicPlayer;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        musicPlayer = GetComponent<AudioSource>();
+    }    
+
+    public void PlayMusic(int index)
+    {
+        Debug.Log("Playing track: " + index);
+        switch (index)
+        {
+            case 1:
+                musicPlayer.clip = levelOne;
+                break;
+            case 2:
+                musicPlayer.clip = levelTwo;
+                break;
+            case 3:
+                musicPlayer.clip = bossMusic;
+                break;
+            default:
+                musicPlayer.clip = levelOne;
+                break;
+        }
+
+        if (musicPlayer.isPlaying)
+        {
+            musicPlayer.Stop();
+        }
+
+        musicPlayer.Play();
     }
 }

@@ -14,7 +14,7 @@ public class BossSpawn : MonoBehaviour
     [SerializeField] private float secondsBeforeDestroy = 5f;
 
     [Header("Follow Player")]
-    [SerializeField] private bool followPlayer = false;
+    [SerializeField] private bool followPlayer = false;    
     
     private PlayerStateManager player;
     private Boss mother;
@@ -35,7 +35,7 @@ public class BossSpawn : MonoBehaviour
     {
         if (mother == null)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * backSpeed, Space.World);
+            transform.Translate(Vector3.forward * Time.deltaTime * backSpeed, Space.Self);
         }
         else
         {
@@ -54,6 +54,7 @@ public class BossSpawn : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            other.GetComponent<PlayerStateManager>().BroadcastMessage("PlayerHurt");
             this.gameObject.layer = 11; // Don't collide
         }        
     }
