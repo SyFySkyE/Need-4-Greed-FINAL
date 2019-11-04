@@ -56,18 +56,26 @@ public class GroundSpawner : MonoBehaviour
         }
     }
 
-    private void Respawn()
+    public void Restart()
     {
-        Debug.Log("dwda");
-        StartCoroutine(ResetParameters());        
+        ResetParameters();       
     }
 
-    private IEnumerator ResetParameters()
+    private void ResetParameters()
     {
-        yield return new WaitForSeconds(1f);
-        zPosToSpawn = initZPosToSpawn;
-        zPosIncrement = initZPosIncrement;
-        zPosSpawnTrigger = initZPosSpawnTrigger;
-        zPosDespawnTrigger = initZPosDespawnTrigger;
+        int playerZPos = (int)player.transform.position.z;
+        Debug.Log(playerZPos);              
+        zPosToSpawn = initZPosToSpawn + playerZPos;
+        Debug.Log(zPosToSpawn);
+        zPosSpawnTrigger = initZPosSpawnTrigger + playerZPos;
+        zPosDespawnTrigger = initZPosDespawnTrigger + playerZPos;
+        RespawnStartingGround();
+    }
+
+    private void RespawnStartingGround()
+    {
+        Vector3 spawnPos = new Vector3(0f, 0f, zPosToSpawn);
+        GameObject startGround = Instantiate(groundToSpawn, spawnPos, Quaternion.identity);
+        groundObjectsInScene.Enqueue(startGround);
     }
 }

@@ -124,5 +124,5 @@ public class PlayerRun :  MonoBehaviour
     {
         canRun = true;
         playerAnim.SetTrigger("Respawn");
-    }
+    }    
 }

@@ -4791,8 +4791,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fcd9d97fe6b5340b3a3948f3db9b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backSpeed: 15
-  moveTowardMotherSpeed: 50
+  backSpeed: 5
+  moveTowardMotherSpeed: 125
   secondsBeforeDestroy: 5
   followPlayer: 1
 --- !u!1001 &3178861031591585854
@@ -4802,6 +4802,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1674130526759142, guid: 6ff0cd15d1a2a2942b6bb5159b2a0b51, type: 3}
+      propertyPath: m_Name
+      value: Safe Dragon
+      objectReference: {fileID: 0}
+    - target: {fileID: 1674130526759142, guid: 6ff0cd15d1a2a2942b6bb5159b2a0b51, type: 3}
+      propertyPath: m_TagString
+      value: BossSpawn
+      objectReference: {fileID: 0}
     - target: {fileID: 4037594867893618, guid: 6ff0cd15d1a2a2942b6bb5159b2a0b51, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4846,20 +4854,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1674130526759142, guid: 6ff0cd15d1a2a2942b6bb5159b2a0b51, type: 3}
-      propertyPath: m_Name
-      value: Safe Dragon
-      objectReference: {fileID: 0}
-    - target: {fileID: 1674130526759142, guid: 6ff0cd15d1a2a2942b6bb5159b2a0b51, type: 3}
-      propertyPath: m_TagString
-      value: BossSpawn
-      objectReference: {fileID: 0}
     - target: {fileID: 95119539051081008, guid: 6ff0cd15d1a2a2942b6bb5159b2a0b51,
         type: 3}
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 95119539051081008, guid: 6ff0cd15d1a2a2942b6bb5159b2a0b51, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6ff0cd15d1a2a2942b6bb5159b2a0b51, type: 3}
 --- !u!1 &3177403718564036824 stripped
 GameObject:

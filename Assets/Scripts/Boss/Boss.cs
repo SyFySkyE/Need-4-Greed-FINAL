@@ -124,7 +124,7 @@ public class Boss : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 11) // Set by player once hit
+        if (other.gameObject.layer == 11 && !other.gameObject.CompareTag("Obstacle")) // Set by player once hit
         {
             Destroy(other.gameObject);
             NextState();            

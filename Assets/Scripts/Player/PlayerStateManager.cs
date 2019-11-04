@@ -51,6 +51,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         this.CurrentState = PlayerState.Running;
         transform.position = respawnLoc;
+        FindObjectOfType<GroundSpawner>().BroadcastMessage("Restart");
     }
 
     private void Update()

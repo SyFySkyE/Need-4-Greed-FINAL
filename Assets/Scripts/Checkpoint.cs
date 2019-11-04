@@ -27,9 +27,9 @@ public class Checkpoint : MonoBehaviour
 
     [Header("Music Player Dependency")]
     [SerializeField] private MusicPlayer musicController;
+    [SerializeField] private int nextTrackNumberToPlay;
 
     private AudioSource cpAudio;
-    private int musicIndex = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -65,12 +65,6 @@ public class Checkpoint : MonoBehaviour
 
     private void PlayNextSong()
     {
-        musicIndex++;
-        musicController.PlayMusic(musicIndex);
-    }
-
-    private void Restart()
-    {
-       // musicController.PlayMusic(musicIndex);
+        musicController.PlayMusic(nextTrackNumberToPlay);
     }
 }
