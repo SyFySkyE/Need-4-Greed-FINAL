@@ -71697,14 +71697,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 849036982, guid: 8473cbd83ddc1ac45bf6b5951870ad0b, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3977062265713393273, guid: 8473cbd83ddc1ac45bf6b5951870ad0b,
         type: 3}
       propertyPath: m_Layer
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 849036982, guid: 8473cbd83ddc1ac45bf6b5951870ad0b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8473cbd83ddc1ac45bf6b5951870ad0b, type: 3}
