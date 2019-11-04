@@ -177,6 +177,7 @@ public class Boss : MonoBehaviour
 
     private void OnDeath()
     {
-        Destroy(this.gameObject);
+        FindObjectOfType<GameSceneManager>().BroadcastMessage("Victory");
+        Destroy(this.gameObject);        
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameSceneManager : MonoBehaviour
 {
+    [SerializeField] private GameObject winCanvas;
+
     public void LoadNextScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -25,5 +27,10 @@ public class GameSceneManager : MonoBehaviour
 #else
         Application.Quit(0); // TODO spice up?
 #endif
+    }
+
+    private void Victory()
+    {
+        winCanvas.SetActive(true);
     }
 }
