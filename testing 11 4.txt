@@ -6,7 +6,7 @@ Observations:
 5 Gasped when stomped on enemy 
 6 Noodded when hit
 7 almost died during segment 1
-8 Stays during middle
+8 Stays in middle
 9 Didn't hit coin requirement, didn'ty understand why
 10 Sipped through floor
 11 Seemed hard during act 2
@@ -19,13 +19,13 @@ Questions
 Difficult curve?
 - Amped well
 - Felt like it was easy medium hard
-- Was waiting for chicken
+- Was waiting for chicken at boss since jumped on chicken = good
 
 Observations
 1 Stars jumping, strafing
 2 Likens it to Temple Run
 3 Follows coins
-4 Knows they don't have to jump for high coins
+4 Knows they don't have to jump for high coins as a negative
 5 , choose not toLikes particles
 6 Says it looks good
 7 Can't tell when hurt and when getting jump bonus
@@ -34,7 +34,7 @@ Observations
 10 Likes bg
 11 Seems to need to concentrate 
 12 Says it can be 
-13 Got stuck on 
+13 Got stuck on obstacle 
 14 After hurt, get launched and vulnerable before landing 
 15 Didn't understand why didn't pass coin req
 16 Didn't know to save coins
@@ -60,7 +60,7 @@ Observations
 - Seems to get chaotic 
 - Keeps trying to click 
 - "There's sp many"
-- "OCD person would 
+- "OCD person would lose their shit at how many stuff to collect and not able to collect 
 - Restarting from checkpoint incerases speed
 - "Oh shit" at the dragon
 - Keeps trying to click
@@ -87,7 +87,7 @@ Mike
  + People generally seem to not tknow what to do
 - Early on, seems oppurtunity to get eveyr coin, gets taken away
 - Stompiong is satisfying
-- Tries to shortcut
+- Tries to short jump
 - Enemy glitch large jump
 - Aw way to tell player about hearts.coin numbers
 - Gets chaotic
@@ -100,10 +100,10 @@ Mike
 - Even when nedds to jump on "bullets"
 - "Am I supposed to jump on the bullets?
 - Ramps up too fast
-- "Feels like random generation "
+- "Feels like random generation on act 2"
 
 Questions
--
+- Suggests heart icons for each hp
 
 Observations
 - "Borderline copyright infringment"
@@ -111,7 +111,7 @@ Observations
 - Manipulation of jumping
 - Likes particles
 - Jumps with full strafe
-- "Though I didn't make that one
+- "Though I didn't make that one" referring to jump landing on obstacle
 - "Is that a chicken??"
 - "Oh yeah, that is def a chicken"
 - "Did I jump on the cjicken>"
@@ -123,7 +123,7 @@ Observations
 - :feel like gonna die any swcond now
 - "Health comes back?"
 - Dies on acty 2
-- So close to next checkpoint, doesn't know coin req
+- So close to next checkpoint, doesn't know coin req, checkpoint encourage
  + Stomping seems to be kind of a liability, makes them to fly into other obstacles
 - Asks about checkpoint logic
 - Seems to be something to play on phone and bus
@@ -135,10 +135,10 @@ Observations
 Questions 
 Difficulty curve
 - Likes curve, was too boring at first
-- Feels like game starts act 2 (not nexeccarily a bad thing but)
+- Feels like game starts act 2 ("not nexeccarily a bad thing but")
 
 Tried to do something different
-- Cjecoiunts made it seem like another obstacle to slide under
+- checkpoints made it seem like another obstacle to slide under
 - Abiltiy to buy costumes w/ coins 
 
 Observations
@@ -151,7 +151,7 @@ Observations
 - Oh, if I land on it?
 - "Do you keep your score"?
 - Doesn't realize you lose coins?
-- Wants to land on chicken, triggers are not 
+- Wants to land on chicken but buggy triggers discourages
 - Doesn't uynderstand coin req
 - Do you speed up every time? or More object?
 
@@ -161,7 +161,7 @@ Want anything else in that game?
 
 Diffcult curve
 - Feels like it pretty good, doesn't feel like it's super hard yet dieing often
-- Kinda reminds 
+- Kinda reminds of an old flash game where you drive a little car avoiding other cars (Find this?)
 - Bugs checkpoint system
 - Feels chaotic
 - 
