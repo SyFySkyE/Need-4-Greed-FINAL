@@ -28,6 +28,7 @@ public class PlayerRun :  MonoBehaviour
     private PlayerStateManager playerManager;
 
     private bool canRun = true;
+    private bool isVulnerable = true;
 
     // Start is called before the first frame update
     void Start()
@@ -110,9 +111,21 @@ public class PlayerRun :  MonoBehaviour
         }
         else if (other.CompareTag("Enemy") || other.CompareTag("Obstacle"))
         {
-            BroadcastMessage("PlayerHurt");
+            if (isVulnerable)
+            {
+                BroadcastMessage("PlayerHurt");
+                isVulnerable = false;
+                StartCoroutine(ToggleVulnerable());
+            }            
             other.gameObject.layer = 11; // Don't collide
         }
+    }
+
+    private IEnumerator ToggleVulnerable()
+    {
+        float timeBeforeVulnerable = GetComponent<PlayerHealth>().RecoveryTime;
+        yield return new WaitForSeconds(timeBeforeVulnerable);
+        isVulnerable = true;
     }
 
     private void Restart()

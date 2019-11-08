@@ -27,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
     private const int initHP = 3; // Health gets set back to full upon restart, checkpoint pass
     public int InitHP { get { return this.InitHP; } }    
     private bool vulnerable = true;
+    public float RecoveryTime { get { return this.recoveryTime; } }
 
     // Start is called before the first frame update
     void Start()
