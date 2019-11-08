@@ -89,9 +89,12 @@ public class PlayerJump : MonoBehaviour
 
     private void PlayerHurt()
     {
-        if (GetComponent<PlayerHealth>().GetHealth() > 1)
+        if (playerManager.CurrentState != PlayerState.Jumping)
         {
-            playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
+            if (GetComponent<PlayerHealth>().GetHealth() > 1)
+            {
+                playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            }
+        }        
     }
 }

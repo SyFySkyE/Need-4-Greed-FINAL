@@ -48,6 +48,7 @@ public class Enemy : MonoBehaviour
     public void EnemyDeath()
     {
         enemyAnim.SetTrigger("Stomped");
+        this.gameObject.layer = 11; // Don't collide with player
         Destroy(this.gameObject, secondsBeforeDespawn);
     }   
 }
