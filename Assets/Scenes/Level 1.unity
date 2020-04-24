@@ -12459,7 +12459,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-9780
+  m_Name: pb_Mesh-39784
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -27151,7 +27151,7 @@ PrefabInstance:
     - target: {fileID: 5211687262554859517, guid: b44092afe886a6c42903f262483b2b32,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.29
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5211687262554859517, guid: b44092afe886a6c42903f262483b2b32,
         type: 3}
@@ -27161,7 +27161,7 @@ PrefabInstance:
     - target: {fileID: 5211687262554859517, guid: b44092afe886a6c42903f262483b2b32,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5211687262554859517, guid: b44092afe886a6c42903f262483b2b32,
         type: 3}
@@ -27207,29 +27207,10 @@ PrefabInstance:
       propertyPath: hPText
       value: 
       objectReference: {fileID: 944280126}
-    - target: {fileID: 635411750, guid: b44092afe886a6c42903f262483b2b32, type: 3}
-      propertyPath: healthPoints
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 635411757, guid: b44092afe886a6c42903f262483b2b32, type: 3}
       propertyPath: coinText
       value: 
       objectReference: {fileID: 88140613}
-    - target: {fileID: 5211687262554859515, guid: b44092afe886a6c42903f262483b2b32,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2.3613544
-      objectReference: {fileID: 0}
-    - target: {fileID: 5211687262554859515, guid: b44092afe886a6c42903f262483b2b32,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 1.5865905
-      objectReference: {fileID: 0}
-    - target: {fileID: 5211687262554859515, guid: b44092afe886a6c42903f262483b2b32,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 0.15585577
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b44092afe886a6c42903f262483b2b32, type: 3}
 --- !u!1 &635411742 stripped
@@ -54408,10 +54389,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -58325,7 +58306,7 @@ PrefabInstance:
     - target: {fileID: 4934930093385772892, guid: f0614328c272d2e4a9e08ec6b637eddd,
         type: 3}
       propertyPath: coinReq
-      value: 60
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4934930093385772892, guid: f0614328c272d2e4a9e08ec6b637eddd,
         type: 3}
@@ -58336,6 +58317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: nextTrackNumberToPlay
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934930093385772892, guid: f0614328c272d2e4a9e08ec6b637eddd,
+        type: 3}
+      propertyPath: passSfxVolume
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7213523007977455982, guid: f0614328c272d2e4a9e08ec6b637eddd,
         type: 3}
@@ -62755,7 +62741,7 @@ PrefabInstance:
     - target: {fileID: 4934930093385772892, guid: f0614328c272d2e4a9e08ec6b637eddd,
         type: 3}
       propertyPath: coinReq
-      value: 150
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4934930093385772892, guid: f0614328c272d2e4a9e08ec6b637eddd,
         type: 3}
@@ -62766,6 +62752,11 @@ PrefabInstance:
         type: 3}
       propertyPath: nextTrackNumberToPlay
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934930093385772892, guid: f0614328c272d2e4a9e08ec6b637eddd,
+        type: 3}
+      propertyPath: passSfxVolume
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7213523007977455982, guid: f0614328c272d2e4a9e08ec6b637eddd,
         type: 3}

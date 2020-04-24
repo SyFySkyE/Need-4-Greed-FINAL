@@ -35,6 +35,8 @@ public class Boss : MonoBehaviour
     [SerializeField] private ParticleSystem eatGrass;
     [SerializeField] private ParticleSystem deathVfx;
 
+    [SerializeField] private float timeBetweenCharges = 10f;
+
     private Animator bossAnim;
     private bool vulnerable = true;
     private bool hasSpawned = false;
@@ -50,19 +52,9 @@ public class Boss : MonoBehaviour
 
     private IEnumerator Spawn()
     {
+        bossAnim.SetTrigger("Move");
         yield return new WaitForSeconds(secondsBetweenSpawns);
         if (currentPhase == BossPhase.One)
-        {
-            if (GetRandomNumber() == 0)
-            {
-                Instantiate(safeFireBall, spawnLocation.transform.position, Quaternion.identity);
-            }
-            else
-            {
-                Instantiate(badFireBall, spawnLocation.transform.position, Quaternion.identity);
-            }
-        }
-        else if (currentPhase == BossPhase.Two)
         {
             if (GetRandomNumber() == 0)
             {
@@ -73,9 +65,21 @@ public class Boss : MonoBehaviour
                 Instantiate(badDragon, spawnLocation.transform.position, transform.rotation);
             }            
         }
+        else if (currentPhase == BossPhase.Two)
+        {
+            if (GetRandomNumber() == 0)
+            {
+                Instantiate(safeFireBall, spawnLocation.transform.position, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(badFireBall, spawnLocation.transform.position, Quaternion.identity);
+            }
+        }
         else if (currentPhase == BossPhase.Three)
         {
             bossAnim.SetTrigger("Charge");
+            secondsBetweenSpawns = timeBetweenCharges;
         }
         else
         {

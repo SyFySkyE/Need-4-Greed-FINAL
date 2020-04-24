@@ -15012,8 +15012,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.560833, y: 2.662633, z: 1.311712}
-  m_Center: {x: -0.03501743, y: 1.73723, z: 0.1558558}
+  m_Size: {x: 1.560833, y: 2.3613544, z: 1.311712}
+  m_Center: {x: -0.03501743, y: 1.5865905, z: 0.15585577}
 --- !u!135 &5211687262554859514
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15198,6 +15198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b225011464b8e245bfbbb6706486187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  secondsBeforeRespawn: 3
 --- !u!114 &635411757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15212,7 +15213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsCollected: 0
   coinBonus: 10
-  coinsLostOnHurt: 5
+  coinsLostOnHurt: 0
   coinText: {fileID: 0}
 --- !u!1 &5211687262564900663
 GameObject:
